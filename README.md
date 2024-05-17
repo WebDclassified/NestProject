@@ -1,65 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+Nest.js PostgreSQL API
+This repository contains a Nest.js-based API that allows users to interact with a PostgreSQL database. It implements CRUD (Create, Read, Update, Delete) operations, error handling, validation for user input, and JWT-based authentication and authorization.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
+Table of Contents
+Installation
+Usage
+Folder Structure
+Configuration
+Testing
+API Endpoints
+Dependencies
+License
 
 
+Installation
+Clone the repository:
+#git clone <repository-url>
 
-## License
+Navigate to the project directory:
+#cd <project-directory>
 
-Nest is [MIT licensed](LICENSE).
+Install dependencies:
+#npm install
+
+Usage
+Start the application:
+#npm run start
+Access the API endpoints using a tool like Postman or cURL.
+
+
+Folder Structure
+The src directory contains the following structure:
+
+entities: Contains database entity classes (e.g., user.entity.ts).
+users: Module for user-related functionality (e.g., user service, controller).
+auth: Module for authentication and authorization.
+app.module.ts: Main module of the application, contains configuration settings.
+main.ts: Entry point of the application.
+Configuration
+The application is configured to connect to a PostgreSQL database. Database connection settings are specified in the TypeOrmModule.forRoot() method in app.module.ts. Ensure that the database credentials and connection details are correctly configured.
+
+Testing
+The application can be tested using tools like Postman or cURL. Refer to the API Endpoints section for details on available endpoints and how to use them.
+
+API Endpoints
+The API provides the following endpoints:
+
+POST /auth/login: Endpoint for user authentication. Requires email and password in the request body. Returns a JWT token upon successful authentication.
+POST /users: Endpoint to create a new user. Requires name, email, and password in the request body.
+GET /users: Endpoint to get all users. Requires a valid JWT token in the request header for authentication.
+GET /users/:id: Endpoint to get a specific user by ID. Requires a valid JWT token in the request header for authentication.
+PUT /users/:id: Endpoint to update a user by ID. Requires a valid JWT token in the request header for authentication.
+DELETE /users/:id: Endpoint to delete a user by ID. Requires a valid JWT token in the request header for authentication.
+Dependencies
+The main dependencies used in this project are:
+
+@nestjs/common: Nest.js framework for building scalable applications.
+@nestjs/typeorm: Nest.js integration with TypeORM for database interactions.
+class-validator: Library for object validation.
+bcrypt: Library for password hashing.
+jsonwebtoken: Library for JWT token generation and verification.
+pg: PostgreSQL client for Node.js.
+
