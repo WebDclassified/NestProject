@@ -82,23 +82,47 @@ The application can be tested using tools like Postman or cURL. Refer to the API
 <ul>
   <ol>
     The API provides the following endpoints:
+<br>
 
 POST /auth/login: Endpoint for user authentication. Requires email and password in the request body. Returns a JWT token upon successful authentication.
+<br>
+
 POST /users: Endpoint to create a new user. Requires name, email, and password in the request body.
+<br>
+
 GET /users: Endpoint to get all users. Requires a valid JWT token in the request header for authentication.
+<br>
+
 GET /users/:id: Endpoint to get a specific user by ID. Requires a valid JWT token in the request header for authentication.
+<br>
+
 PUT /users/:id: Endpoint to update a user by ID. Requires a valid JWT token in the request header for authentication.
+<br>
+
 DELETE /users/:id: Endpoint to delete a user by ID. Requires a valid JWT token in the request header for authentication.
+<br>
+
   </ol>
 </ul>
 
 <h3>Dependencies</h3>
 The main dependencies used in this project are:
+<br>
 
 @nestjs/common: Nest.js framework for building scalable applications.
+<br>
+
 @nestjs/typeorm: Nest.js integration with TypeORM for database interactions.
+<br>
+
 class-validator: Library for object validation.
+<br>
+
 bcrypt: Library for password hashing.
+
+<br>
 jsonwebtoken: Library for JWT token generation and verification.
+
+<br>
 pg: PostgreSQL client for Node.js.
 
